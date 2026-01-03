@@ -1,33 +1,28 @@
 class NameScene extends Phaser.Scene {
-    constructor() { super('NameScene'); }
+    constructor() {
+        super('NameScene');
+    }
     create() {
-        this.add.text(200, 150, 'Name eingeben', { font: '32px Arial', fill: '#fff' });
+        this.add.text(200, 200, 'NameScene läuft', {
+            font: '32px Arial',
+            fill: '#ffffff'
+        });
+
+        this.time.delayedCall(2000, () => {
+            this.scene.start('GameScene');
+        });
     }
 }
 
 class GameScene extends Phaser.Scene {
-    constructor() { super('GameScene'); }
-    create() {
-        this.add.text(200, 200, 'Spiel läuft', { font: '32px Arial', fill: '#0f0' });
+    constructor() {
+        super('GameScene');
     }
-}
-
-class QuizScene extends Phaser.Scene {
-    constructor() { super('QuizScene'); }
     create() {
-        this.add.text(200, 200, 'Quiz', { font: '32px Arial', fill: '#ff0' });
-    }
-}
-
-class EndScene extends Phaser.Scene {
-    constructor() { super('EndScene'); }
-    create() {
-        this.add.text(
-            100,
-            200,
-            'Super Bowl Party am 08.02.2026',
-            { font: '28px Arial', fill: '#fff' }
-        );
+        this.add.text(200, 200, 'GameScene läuft', {
+            font: '32px Arial',
+            fill: '#00ff00'
+        });
     }
 }
 const config = {
@@ -35,11 +30,6 @@ const config = {
     width: 800,
     height: 450,
     backgroundColor: '#000000',
-    physics: {
-        default: 'arcade',
-        arcade: { gravity: { y: 900 } }
-    },
-    scene: [NameScene, GameScene, QuizScene, EndScene]
+    scene: ['NameScene', 'GameScene']
 };
 new Phaser.Game(config);
-
