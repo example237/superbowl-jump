@@ -30,3 +30,16 @@ class EndScene extends Phaser.Scene {
         );
     }
 }
+const config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 450,
+    backgroundColor: '#000000',
+    physics: {
+        default: 'arcade',
+        arcade: { gravity: { y: 900 } }
+    },
+    scene: [NameScene, GameScene, QuizScene, EndScene]
+};
+new Phaser.Game(config);
+
