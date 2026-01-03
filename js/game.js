@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load', function () {
 
     class TestScene extends Phaser.Scene {
         create() {
@@ -9,12 +9,15 @@ window.onload = function () {
         }
     }
 
-    new Phaser.Game({
+    const config = {
         type: Phaser.AUTO,
         width: 800,
         height: 450,
         backgroundColor: '#000000',
-        scene: TestScene
-    });
+        parent: 'game-container',
+        scene: [TestScene]
+    };
 
-};
+    new Phaser.Game(config);
+
+});
